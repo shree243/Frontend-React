@@ -2,15 +2,16 @@
 import React, { useEffect, useState } from 'react';
 
 const CustomeToast = ({ message, show, onClose }) => {
-    const [showToast, setShowToast] = useState(false);
+  const [showToast, setShowToast] = useState(false);
 
-    const handleCloseToast = () => {
-        setShowToast(false);
-      };
+  const handleCloseToast = () => {
+    setShowToast(false);
+  };
 
-      
+
   useEffect(() => {
     if (showToast) {
+      console.log("auto close")
       const timer = setTimeout(() => {
         handleCloseToast();
       }, 2000); // Auto close after 1 second
@@ -19,9 +20,9 @@ const CustomeToast = ({ message, show, onClose }) => {
     }
   }, [showToast, onClose]);
 
-  useEffect(()=>{
+  useEffect(() => {
     setShowToast(show)
-  },[show])
+  }, [show])
 
   if (!showToast) return null;
 
